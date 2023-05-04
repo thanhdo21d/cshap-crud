@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Danh sach san pham";
+}
+
+@model List<Product>
+<div class="row gap-2">
+    <div class="col-3" >
+        <button class="btn rounded border my-2 p-2">New Product</button><br />
+        <button class="btn rounded border my-2 p-2">New Product</button><br />
+        <button class="btn rounded border p-2">New Product</button><br />
+        <button class="btn rounded border my-2 p-2">New Product</button> <br/>
+        <button class="btn rounded border my-2 p-2">New Product</button><br />
+        <button class="btn rounded border my-2 p-2">New Product</button><br />
+
+    </div>
+
+
+    <div class="col-9">
+        <table class="table table-border">
+            <button class="btn btn-primary p-2">New Product</button>
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>description</th>
+                    <th>number stock</th>
+                    <th>category</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var product in Model)
+                {
+                    <tr class="bg-secondary mb-5 rounded text-white text-lg">
+                        <td>@product.Id</td>
+                        <td>@product.Name</td>
+                        <td>@product.Description</td>
+                        <td>@product.Number</td>
+                        <td>@product.Category</td>
+
+                        <td>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@product.Id">Xoa</a>
+                            <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@product.Id">Sua</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+    
